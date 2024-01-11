@@ -1,8 +1,8 @@
 %global __remake_config 1
 
 Name:           libfabric
-Version:        1.17.0
-Release:        3%{?dist}.1
+Version:        1.18.0
+Release:        1%{?dist}
 Summary:        Open Fabric Interfaces
 
 License:        BSD or GPLv2
@@ -94,6 +94,11 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Thu Jun 01 2023 Kamal Heib <kheib@redhat.com> - 1.18.0-1
+- Update to upstream release 1.18.0
+- Add gating tests
+- Resolves: rhbz#2153009
+
 * Wed Feb 08 2023 Michal Schmidt <mschmidt@redhat.com> - 1.17.0-3.1
 - Re-enable autotools remake to fix unwanted rpath in binaries.
 - Resolves: rhbz#2168098
