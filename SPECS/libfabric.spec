@@ -1,8 +1,8 @@
 %global __remake_config 0
 
 Name:           libfabric
-Version:        1.17.0
-Release:        3%{?dist}.1
+Version:        1.18.0
+Release:        1%{?dist}
 Summary:        Open Fabric Interfaces
 
 License:        BSD or GPLv2
@@ -94,6 +94,10 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Thu Jun 01 2023 Kamal Heib <kheib@redhat.com> - 1.18.0-1
+- Update to upstream 1.18.0.
+- Resolves: rhbz#2153027
+
 * Fri Feb 03 2023 Michal Schmidt <mschmidt@redhat.com> - 1.17.0-3.1
 - Bump for side-tag rebuild.
 
