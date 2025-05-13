@@ -1,7 +1,7 @@
 %global __remake_config 0
 
 Name:           libfabric
-Version:        1.18.0
+Version:        1.22.0
 Release:        1%{?dist}
 Summary:        Open Fabric Interfaces
 
@@ -94,6 +94,10 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Tue Nov 05 2024 Kamal Heib <kheib@redhat.com> - 1.22.0-1
+- Update to upstream 1.22.0
+- Resolves: RHEL-46648
+
 * Thu Jun 01 2023 Kamal Heib <kheib@redhat.com> - 1.18.0-1
 - Update to upstream 1.18.0.
 - Resolves: rhbz#2153027
