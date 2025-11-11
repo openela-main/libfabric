@@ -9,7 +9,7 @@
 %endif
 
 Name:           libfabric
-Version:        1.22.0
+Version:        2.1.0
 Release:        1%{?dist}
 Summary:        Open Fabric Interfaces
 
@@ -102,6 +102,10 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Thu Jun 19 2025 Kamal Heib <kheib@redhat.com> - 2.1.0-1
+- Update to upstream release 2.1.0
+- Resolves: RHEL-73065
+
 * Mon Nov 18 2024 Kamal Heib <kheib@redhat.com> - 1.22.0-1
 - Update to upstream release 1.22.0
 - Resolves: RHEL-16844, RHEL-24119, RHEL-25795
