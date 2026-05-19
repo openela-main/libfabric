@@ -1,8 +1,8 @@
 %global __remake_config 0
 
 Name:           libfabric
-Version:        2.1.0
-Release:        1%{?dist}
+Version:        2.3.1
+Release:        3%{?dist}
 Summary:        Open Fabric Interfaces
 
 License:        BSD or GPLv2
@@ -21,6 +21,7 @@ BuildRequires:  libnl3-devel
 %ifnarch %{arm}
 BuildRequires:  libibverbs-devel
 BuildRequires:  librdmacm-devel
+Requires:	rdma-core-devel
 %endif
 %ifarch x86_64
 %if 0%{?fedora} || 0%{?rhel} == 7
@@ -47,7 +48,7 @@ libraries, which are often integrated directly into libfabric.
 
 %package        devel
 Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       %{name} = %{version}-%{release}
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -76,6 +77,7 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %files
 %license COPYING
 %{_bindir}/fi_info
+%{_bindir}/fi_mon_sampler
 %{_bindir}/fi_pingpong
 %{_bindir}/fi_strerror
 %{_libdir}/*.so.1*
@@ -94,6 +96,18 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Fri Jan 23 2026 Kamal Heib <kheib@redhat.com> - 2.3.1-3
+- Rebuilt for RHEL-9.8
+- Resolves: RHEL-97660, RHEL-97651, RHEL-90252
+
+* Wed Dec 17 2025 Kamal Heib <kheib@redhat.com> - 2.3.1-2
+- bump release to rebuild in sidetag
+- Resolves: RHEL-97660, RHEL-97651, RHEL-90252
+
+* Wed Dec 10 2025 Kamal Heib <kheib@redhat.com> - 2.3.1-1
+- Update to upstream 2.3.1
+- Resolves: RHEL-97660, RHEL-97651, RHEL-90252
+
 * Thu Jun 19 2025 Kamal Heib <kheib@redhat.com> - 2.1.0-1
 - Update to upstream 2.1.0
 - Resolves: RHEL-73064
