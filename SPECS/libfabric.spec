@@ -9,7 +9,7 @@
 %endif
 
 Name:           libfabric
-Version:        2.1.0
+Version:        2.3.1
 Release:        1%{?dist}
 Summary:        Open Fabric Interfaces
 
@@ -29,6 +29,7 @@ BuildRequires:  libnl3-devel
 %ifnarch %{arm}
 BuildRequires:  libibverbs-devel
 BuildRequires:  librdmacm-devel
+Requires:	libibverbs
 %endif
 %ifarch x86_64
 %if 0%{?fedora} || 0%{?rhel} == 7
@@ -84,6 +85,7 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %files
 %license COPYING
 %{_bindir}/fi_info
+%{_bindir}/fi_mon_sampler
 %{_bindir}/fi_pingpong
 %{_bindir}/fi_strerror
 %{_libdir}/*.so.1*
@@ -102,6 +104,10 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Wed Feb 04 2026 Kamal Heib <kheib@redhat.com> - 2.3.1-1
+- Update to upstream release 2.3.1
+- Resolves: RHEL-90255, RHEL-99199, RHEL-99208
+
 * Thu Jun 19 2025 Kamal Heib <kheib@redhat.com> - 2.1.0-1
 - Update to upstream release 2.1.0
 - Resolves: RHEL-73065
